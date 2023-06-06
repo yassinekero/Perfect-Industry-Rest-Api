@@ -4,6 +4,9 @@ from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
 from .models import Admin
 import jwt, datetime
+from rest_framework import status
+from rest_framework.decorators import api_view
+
 
 
 
@@ -37,7 +40,20 @@ class AuthenticateView(APIView):
         
         return response
 
+@api_view(['GET'])
+def view_produit(request):
 
+    if request.query_params:
+        produit = Admin.objects.filter(**request.query_params.dict())
+    else:
+        produit = Admin.objects.all()
+ 
+
+    if produit:
+        serializer = UserSerializer(produit, many=True)
+        return Response(serializer.data)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 class AdminView(APIView):
 
