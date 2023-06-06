@@ -9,8 +9,8 @@ import jwt, datetime
 
 class AuthenticateView(APIView):
     def post(self, request):
-        login = request.data['login']
-        password = request.data['password']
+        login = request.data.get('login')
+        password = request.data.get('password')
 
         admin = Admin.objects.filter(login=login).first()
 
