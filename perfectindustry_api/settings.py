@@ -74,8 +74,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:4200',
-    'https://perfect-industry-api.onrender.com/'
+   '*'
 )
 
 ROOT_URLCONF = 'perfectindustry_api.urls'
