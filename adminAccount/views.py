@@ -12,7 +12,7 @@ class AuthenticateView(APIView):
         login = request.data.get('login')
         password = request.data.get('password')
 
-        admin = Admin.objects.filter(login=login).first()
+        admin = Admin.objects.get(login = login)
 
         if admin is None:
             raise AuthenticationFailed('Wrong Admin Credentials')
