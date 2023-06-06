@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-6*v_^k-0#654@2*+8&bdo-+=_4*e%s444q+y%10nig%4v6z!fo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+'https://perfect-industry-api.onrender.com/']
 
 
 # Application definition
